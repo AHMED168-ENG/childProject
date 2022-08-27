@@ -34,7 +34,7 @@ const signInAdmin = async (req, res, next) => {
       },
     });
 
-    if (user) {
+    if (user &&user.isAdmin) {
       var compairPassword = bcrypt.compareSync(
         req.body.password,
         user.password

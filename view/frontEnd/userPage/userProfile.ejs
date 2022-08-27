@@ -33,8 +33,8 @@
       <div class="col-md-6">
         <div class="right">
           <div class="image">
-            <img src="/backEnd/assets/img/users/<%= user.image ?
-            user.image.split("--")[0] : "avatar.png" %>" alt="صورة المستخدم" />
+            <img src="/backEnd/assets/img/users/<%= user.image.split("--")[0]
+            %>" alt="صورة المستخدم" />
           </div>
           <div class="text">
             <h3>الاسم: <span><%= user.name %></span></h3>
@@ -82,7 +82,7 @@
               <h6>الايميل:<span><%= user.email %></span></h6>
               <h6>الاختبارات المجتازه:<span><%= userResult.length %></span></h6>
               <h6>
-                الاعاقات:<span>
+                مشكلات طفلك:<span>
                   <% userDisability.forEach(element => { %> <%= element.name +
                   "--" %> <% }) %>
                 </span>

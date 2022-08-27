@@ -20,10 +20,10 @@
                     <div class="page-header">
                         <div class="row">
                             <div class="col-sm-7 col-auto">
-                                <h3 class="page-title">كل الكتب</h3>
+                                <h3 class="page-title">كل تدريبات اعضاء النطق</h3>
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">لوحه التحكم</a></li>
-                                    <li class="breadcrumb-item active">الكتب</li>
+                                    <li class="breadcrumb-item active">تدريبات اعضاء النطق</li>
                                 </ul>
                             </div>
                         </div>
@@ -39,6 +39,8 @@
 											<thead>
 												<tr>
 													<th> اسم الكتاب</th>
+                                                    <th>تابع لاعاقه اخري</th>
+													<th>الاعاقه</th>
 													<th>المحتوي</th>
 													<th>التحكم</th>
 												</tr>
@@ -52,6 +54,11 @@
 																<a ><p class="testPar"><%= element.name %></p></a>
 															</h2>
 														</td>
+	                                                <td>
+														<%= element.isOther ? "نعم" : "لا" %>
+                                                    </td>   													
+														<td><p class="testPar"><%= element.booksDisability.name%></p> </td>
+                                                    </td>
 													<td>
                                                         <a style="margin-left:10px" target="_blank" href="/backEnd/assets/img/Book/<%=  element.pdf.split("--")[0] %>" class="avatar avatar-sm mr-2">pdf</a>
                                                     </td>

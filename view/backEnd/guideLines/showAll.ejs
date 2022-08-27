@@ -39,6 +39,8 @@
 											<thead>
 												<tr>
 													<th>لمحه عن الارشاد</th>
+													<th>تابع لاعاقه اخري</th>
+													<th>الاعاقه</th>
 													<th>المحتوي</th>
 													<th>التحكم</th>
 												</tr>
@@ -52,6 +54,12 @@
 																<a><p class="testPar"><%= element.title %></p></a>
 															</h2>
 														</td>
+													<td>
+														<%= element.isOther ? "نعم" : "لا" %>
+                                                    </td>
+													<td>
+														<%= element.guideLinesDisability.name %>
+                                                    </td>
 													<td>
                                                         <a style="margin-left:10px" target="_blank" href="/backEnd/assets/img/gide/<%=  element.pdf.split("--")[0] %>" class="avatar avatar-sm mr-2">pdf</a>
                                                     </td>

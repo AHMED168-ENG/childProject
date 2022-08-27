@@ -56,7 +56,7 @@
 <div class="training">
   <div class="container">
     <header>
-      <h1 class="text-center">جميع التدريبات للاعاقات التابعه لاعاقه طفلك</h1>
+      <h1 class="text-center">بعض التدريبات الخاصه بمشكلات طفلك</h1>
     </header>
     <div class="row">
       <% MyTraining.rows.forEach(element => { %>
@@ -68,7 +68,9 @@
           </div>
           <div class="text">
             <p><%= element.title %></p>
+            <span>الاضطراب : <span <%=  element.isOther ? "style=color:red" : "" %>><%= element.isOther ? " هذا الكتاب مشترك مبين اكثر من اعاقه " :  element.trainingDisability.name %></span></span>
           </div>
+             
           <a class="btn btn-md btn-success" href="/showTraining/<%= element.id %>">الحق التدريب</a>
         </div>
       </div>

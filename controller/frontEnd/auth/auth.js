@@ -116,11 +116,12 @@ const signUpUserPost = async (req, res, next) => {
     req.body.gender = req.body.gender == "1" ? true : false;
     req.body.Disability =
       req.body.Disability.length > 1
-        ? req.body.Disability
+        ? [req.body.Disability]
         : [req.body.Disability];
     req.body.isDoctor = false;
     req.body.isAdmin = false;
     req.body.active = false;
+    console.log(req.body)
     await db.users.create(req.body).then((result) => {
       4;
       sendEmail(

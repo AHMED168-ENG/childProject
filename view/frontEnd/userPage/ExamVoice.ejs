@@ -56,7 +56,7 @@
 <div class="training">
   <div class="container">
     <header>
-      <h1 class="text-center">جميع التمرينات الصوتيه</h1>
+      <h1 class="text-center">البرامج التأهيليه لمشكلة طفلك</h1>
     </header>
     <div class="row">
       <% if (ExamVoice.rows.length > 0) { %>
@@ -69,9 +69,9 @@
                     element.image.split("--")[0] %>" alt="" />
                   </div>
                   <div class="text">
-                    <p>الاعاقه : <%= element.soundDisability.name %></p>
+                    <p>الاضطراب : <span <%=  element.isOther ? "style=color:red" : "" %>><%= element.isOther ? " هذا الكتاب مشترك مبين اكثر من اعاقه " :  element.soundDisability.name %></span></p>                  
+                     <button class=" download btn btn-sm btn-success" dataHref="http://localhost:5000/backEnd/assets/img/sound/<%= element.pdf.split("--")[0] %>">تنزيل الملف</button>
                   </div>
-                  <button class=" download btn btn-sm btn-success" dataHref="http://localhost:5000/backEnd/assets/img/sound/<%= element.pdf.split("--")[0] %>">تنزيل الملف</button>
                 </div>
               </div>
               <% }) %>

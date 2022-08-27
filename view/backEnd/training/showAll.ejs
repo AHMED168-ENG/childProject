@@ -39,7 +39,8 @@
 											<thead>
 												<tr>
 													<th>عنوان التدريب</th>
-													<th>المحتوي</th>
+                                                    <th>تابع لاعاقه اخري</th>
+													<th>الاعاقه</th>
 													<th>التحكم</th>
 												</tr>
 											</thead>
@@ -52,6 +53,11 @@
 																<a href="profile.html"><p class="testPar"><%= element.title %></p></a>
 															</h2>
 														</td>
+
+                                                        <td>
+                                                            <%= element.isOther ? "نعم" : "لا" %>
+                                                        </td>
+
 													<td><p class="testPar"><%= element.trainingDisability.name%></p> </td>
 													
 													<td>

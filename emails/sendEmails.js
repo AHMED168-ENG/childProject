@@ -6,7 +6,7 @@ const db = require("../models");
 async function sendEmail(email, id, name, subject, url) {
   var transporter = nodemailer.createTransport({
     host: "smtp.mailtrap.io",
-    port: "25",
+    port: "587",
     tls: {
       ciphers: "SSLv3",
       rejectUnauthorized: false,

@@ -21,6 +21,8 @@ module.exports = (sequelize, DataTypes) => {
       pdf: DataTypes.STRING,
       active: DataTypes.BOOLEAN,
       image: DataTypes.STRING,
+      isOther: DataTypes.BOOLEAN,
+      otherDisabilities: DataTypes.ARRAY(DataTypes.INTEGER),
     },
     {
       sequelize,

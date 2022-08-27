@@ -17,7 +17,8 @@ const AllTestingController = async (req, res, next) => {
         { model: db.disability, as: "TestingDisability", attributes: ["name"] },
       ],
     });
-
+    // res.send(Testing)
+    // return true
     res.render("backEnd/Testing/showAll", {
       title: "All Testing",
       URL: req.url,

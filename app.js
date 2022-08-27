@@ -44,7 +44,7 @@ app.use(
   })
 );
 app.use(flash());
-app.use(paginate.middleware(2, 20));
+app.use(paginate.middleware(10, 20));
 /* ------------- set seting -------------------*/
 app.use("/", dashpordRouter);
 app.use("/dashpord", authAdmin);

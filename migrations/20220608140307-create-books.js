@@ -23,6 +23,13 @@ module.exports = {
       active: {
         type: Sequelize.BOOLEAN,
       },
+      isOther: {
+        defaultValue: false,
+        type: Sequelize.BOOLEAN,
+      },
+      otherDisabilities: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER),
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

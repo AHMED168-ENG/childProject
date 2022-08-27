@@ -23,6 +23,13 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
       },
+      isOther: {
+        defaultValue: false,
+        type: Sequelize.BOOLEAN,
+      },
+      otherDisabilities: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER),
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
