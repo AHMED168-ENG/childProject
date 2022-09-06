@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "migrate": "sequelize db:migrate",
-        "seeder": "sequelize seed:all",
+        "seeder": "npx sequelize-cli db:seed:all",
         "build": "npm run migrate && npm run seeder"
     },
     "author": "",
