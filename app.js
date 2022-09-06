@@ -22,6 +22,27 @@ const { allUserResult } = require("./router/backend/UserResult");
 const { GideRouter } = require("./router/backend/gide");
 const { BookRouter } = require("./router/backend/book");
 const { soundExamRouter } = require("./router/backend/SoundExam");
+const { Sequelize } = require("sequelize");
+
+const opts =
+    process.env.NODE_ENV === "development"
+        ? {}
+        : {
+              dialectOptions: {
+                  ssl: {
+                      rejectUnauthorized: false,
+                      require: true,
+                  },
+              },
+          };
+
+// construct a database connection
+console.log(process.env["DATABASE_URL"]);
+const db_ = new Sequelize(process.env["DATABASE_URL"], opts);
+
+db_.authenticate()
+    .then(() => console.log("connected to db"))
+    .catch(console.error);
 
 /*--------------------------- start sockit Io ----------------------------------*/
 var activeUser = {};

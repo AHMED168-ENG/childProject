@@ -1,23 +1,40 @@
 module.exports = {
-    up: function (queryInterface, Sequelize) {
+    up: (queryInterface, Sequelize) => {
         return queryInterface
-            .addColumn("training", "isOther", {
-                type: Sequelize.BOOLEAN,
-                defaultValue: false,
-            })
+            .bulkInsert("users", [
+                {
+                    name: "ahmed reda",
+                    email: "ahmed@ahmed.com",
+                    age: 22,
+                    password: bcrypt.hashSync(
+                        "01024756410ahmed",
+                        parseInt(process.env.BCRYPT_SEKRET_KEY)
+                    ),
+                    gender: "domyate",
+                    isAdmin: true,
+                    isDoctor: true,
+                    number: "1024756410",
+                    active: true,
+                    image: "https://res.cloudinary.com/ahmed-zakys/image/upload/v1662473127/children/users/ssssss_l3h6jm.png",
+                    Disability: 1,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                },
+            ])
             .then(() => {
-                return queryInterface.addColumn(
-                    "training",
-                    "otherDisabilities",
+                return queryInterface.bulkInsert("disabilitys", [
                     {
-                        type: Sequelize.ARRAY(Sequelize.INTEGER),
-                        defaultValue: [],
-                    }
-                );
+                        name: "عدم القدره علي نطق حرف الكاف",
+                        description: "عدم القدره علي نطق حرف الكاف",
+                        image: "https://res.cloudinary.com/ahmed-zakys/image/upload/v1662473296/children/disabilitys/ssssss_nakesd.png",
+                        active: true,
+                        createdAt: new Date(),
+                        updatedAt: new Date(),
+                    },
+                ]);
             });
     },
-
-    down: function (queryInterface, Sequelize) {
-        return queryInterface.removeColumn("training", "isOther");
+    down: (queryInterface, Sequelize) => {
+        return queryInterface.bulkDelete("users", null, {});
     },
 };
