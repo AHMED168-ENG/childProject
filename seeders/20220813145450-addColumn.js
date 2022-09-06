@@ -1,16 +1,13 @@
-import { hashSync } from "bcrypt";
+const bcrypt = require("bcrypt");
 
-export function up(queryInterface, Sequelize) {
-    return queryInterface
-        .bulkInsert("users", [
-            {
+module.exports = {
+    up: (queryInterface, Sequelize) => {
+        return queryInterface
+            .bulkInsert("users", {
                 name: "ahmed reda",
                 email: "ahmed@ahmed.com",
                 age: 22,
-                password: hashSync(
-                    "01024756410ahmed",
-                    parseInt(process.env.BCRYPT_SEKRET_KEY)
-                ),
+                password: bcrypt.hashSync("01024756410ahmed", 10),
                 gender: "domyate",
                 isAdmin: true,
                 isDoctor: true,
@@ -20,21 +17,19 @@ export function up(queryInterface, Sequelize) {
                 Disability: 1,
                 createdAt: new Date(),
                 updatedAt: new Date(),
-            },
-        ])
-        .then(() => {
-            return queryInterface.bulkInsert("disabilitys", [
-                {
+            })
+            .then(() => {
+                return queryInterface.bulkInsert("disabilitys", {
                     name: "عدم القدره علي نطق حرف الكاف",
                     description: "عدم القدره علي نطق حرف الكاف",
                     image: "https://res.cloudinary.com/ahmed-zakys/image/upload/v1662473296/children/disabilitys/ssssss_nakesd.png",
                     active: true,
                     createdAt: new Date(),
                     updatedAt: new Date(),
-                },
-            ]);
-        });
-}
-export function down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete("users", null, {});
-}
+                });
+            });
+    },
+    down: (queryInterface, Sequelize) => {
+        return queryInterface.bulkDelete("users", null, {});
+    },
+};
