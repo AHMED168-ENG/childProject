@@ -33,15 +33,14 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookies());
 app.use(
-  session({
-    secret:
-      "هذا الاوبشن خاص بالتشفير يطلب منك نص معين يستخدمه هو عند التشفير وكلما زاد هذا النص زاد الحمايه",
-    saveUninitialized: false, // معناها انه عند عمل session لاتقوم بحفظها في الداتابيز الا عندما امرك بذالك
-    /*cookie : { // السشن ده هو في الاصل عباره عن cookie لذالك انا اقوم بتحديد بعض القيم لتحديد مده الانتهاء الديفولت هو عند اغلاق المتصفح
+    session({
+        secret: "هذا الاوبشن خاص بالتشفير يطلب منك نص معين يستخدمه هو عند التشفير وكلما زاد هذا النص زاد الحمايه",
+        saveUninitialized: false, // معناها انه عند عمل session لاتقوم بحفظها في الداتابيز الا عندما امرك بذالك
+        /*cookie : { // السشن ده هو في الاصل عباره عن cookie لذالك انا اقوم بتحديد بعض القيم لتحديد مده الانتهاء الديفولت هو عند اغلاق المتصفح
         //maxAge : 1 * 60 * 60 * 100, 
     },*/
-    resave: true,
-  })
+        resave: true,
+    })
 );
 app.use(flash());
 app.use(paginate.middleware(10, 20));
@@ -61,10 +60,10 @@ app.use("/", authUserRoutes);
 app.use("/", userRoutes);
 
 app.use((req, res, next) => {
-  res.render("error", { message: "this page not hir", title: "Error Page" });
+    res.render("error", { message: "this page not hir", title: "Error Page" });
 });
 /*--------------------------- end route  ----------------------------------*/
 
 server.listen("5000", () => {
-  console.log("server starte 5000");
+    console.log("server starte 5000");
 });
