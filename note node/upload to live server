@@ -2,3 +2,14 @@
 2- sudo apt get install nodejs
 3- sudo apt-get install npm
 4- clone to project
+
+
+
+معلومات في نظام uponto 
+nano + اسم الملف 
+علشان لو عاوز اعدل علي داتا جواه 
+
+
+//////////////////////////
+
+mv + اسم الملف القديم + اسم الملف الجديد 
