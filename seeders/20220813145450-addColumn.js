@@ -7,7 +7,7 @@ module.exports = {
                 {
                     name: "عدم القدره علي نطق حرف الكاف",
                     description: "عدم القدره علي نطق حرف الكاف",
-                    image: "https://res.cloudinary.com/ahmed-zakys/image/upload/v1662473296/children/disabilitys/ssssss_nakesd.png",
+                    image: "https://res.cloudinary.com/takllm/image/upload/v1663088535/Takllm/disability/8c841472-a91f-44bb-9a1f-ce41313679fc_hmucyq.jpg--",
                     active: true,
                     createdAt: new Date(),
                     updatedAt: new Date(),
@@ -24,7 +24,7 @@ module.exports = {
                         isAdmin: true,
                         isDoctor: true,
                         active: true,
-                        image: "https://res.cloudinary.com/ahmed-zakys/image/upload/v1662473127/children/users/ssssss_l3h6jm.png",
+                        image: "https://res.cloudinary.com/takllm/image/upload/v1663088460/Takllm/users/ssssss_lijrp8.png--",
                         Disability: [1],
                         createdAt: new Date(),
                         updatedAt: new Date(),
