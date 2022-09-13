@@ -581,7 +581,6 @@ const EditPersonalInformationPost = async (req, res, nest) => {
         }
         req.body.image = file ? file : req.body.oldImage;
         req.body.gender = req.body.gender == "1" ? true : false;
-        console.log(req.body);
         req.body.Disability =
             req.body.Disability.length == 1
                 ? [req.body.Disability]

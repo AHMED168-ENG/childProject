@@ -2,13 +2,14 @@ const http = require("http");
 const express = require("express");
 const app = express();
 const server = http.createServer(app);
-
+require("dotenv").config();
 const path = require("path");
 const db = require("./models");
 const paginate = require("express-paginate");
 const session = require("express-session");
 const flash = require("connect-flash");
 const cookies = require("cookie-parser");
+const cloudinary = require("cloudinary");
 const { dashpordRouter } = require("./router/backend/dashpored");
 const { authAdmin } = require("./router/backend/auth.router");
 const { userRoutes } = require("./router/frontEnd/userPagesRoutes");
@@ -43,6 +44,11 @@ db_.authenticate()
     .then(() => console.log("connected to db"))
     .catch(console.error);
 
+cloudinary.config({
+    cloud_name: process.env.cloud_name,
+    api_key: process.env.api_key,
+    api_secret: process.env.api_secret,
+});
 /*--------------------------- start sockit Io ----------------------------------*/
 var activeUser = {};
 
