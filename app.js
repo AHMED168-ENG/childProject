@@ -90,6 +90,6 @@ app.use((req, res, next) => {
 });
 /*--------------------------- end route  ----------------------------------*/
 
-server.listen("5000", () => {
-    console.log("server starte 5000");
+server.listen("80", () => {
+    console.log("server starte");
 });
