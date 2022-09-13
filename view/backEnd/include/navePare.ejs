@@ -47,16 +47,14 @@
                 <span class="user-img"
                     ><img
                     style="margin-left:20px;width:40px;height:40px;border-radius:50%"
-                    class="rounded-circle" src="/backEnd/assets/img/users/<%=
-                    admin.image ? admin.image.split("--")[0] : "avatar.png" %>"
+                    class="rounded-circle" src="<%=admin.image.split("--")[0]%>"
                     width="31" alt="Ryan Taylor" /></span
                 >
             </a>
             <div class="dropdown-menu">
                 <div class="user-header">
                     <div class="avatar avatar-sm">
-                        <img class="rounded-circle"
-                        src="/backEnd/assets/img/users/<%= admin.image ?
+                        <img class="rounded-circle" src="<%= admin.image ?
                         admin.image.split("--")[0] : "avatar.png" %>" width="31"
                         alt="Ryan Taylor" />
                     </div>
