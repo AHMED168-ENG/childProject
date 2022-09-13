@@ -6,7 +6,7 @@ const {
     EditGideControllerPost,
     addGideController,
     addGideControllerPost,
-} = require("../../controller/backend/Gide");
+} = require("../../controller/backend/gide");
 const { uploade_img_multi_fild } = require("../../Helper/helper");
 const { isAuthonticate } = require("../../middel_ware/backEnd/isAuthonticate");
 
