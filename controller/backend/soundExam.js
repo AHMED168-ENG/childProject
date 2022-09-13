@@ -3,11 +3,9 @@ const {
     tryError,
     handel_validation_errors,
     removeImg,
-    Rename_uploade_img,
     returnWithMessage,
     removeImgFiled,
     Rename_uploade_img_multiFild,
-    uploade_img_multi_fild,
 } = require("../../Helper/helper");
 const db = require("../../models");
 
@@ -83,14 +81,14 @@ const addSoundControllerPost = async (req, res, next) => {
     try {
         var errors = validationResult(req).errors;
         if (errors.length > 0) {
-            removeImgFiled([req.files.image, req.files.pdf]);
+            await removeImgFiled([req.files.image, req.files.pdf]);
             handel_validation_errors(req, res, errors, "/dashpord/addSound");
             return;
         }
-        var files = Rename_uploade_img_multiFild([
-            req.files.image,
-            req.files.pdf,
-        ]);
+        var files = await Rename_uploade_img_multiFild(
+            [req.files.image, req.files.pdf],
+            "sounds"
+        );
         req.body.image = files.image ? files.image : null;
         req.body.pdf = files.pdf ? files.pdf : null;
         req.body.active = true;
@@ -117,7 +115,7 @@ const EditSoundControllerPost = async (req, res, next) => {
     try {
         var errors = validationResult(req).errors;
         if (errors.length > 0) {
-            removeImgFiled([req.files.image, req.files.pdf]);
+            await removeImgFiled([req.files.image, req.files.pdf]);
             handel_validation_errors(
                 req,
                 res,
@@ -126,12 +124,12 @@ const EditSoundControllerPost = async (req, res, next) => {
             );
             return;
         }
-        var files = Rename_uploade_img_multiFild([
-            req.files.image,
-            req.files.pdf,
-        ]);
-        if (files.image) removeImg(req, "sound/", req.body.oldImage);
-        if (files.pdf) removeImg(req, "sound/", req.body.oldPdf);
+        var files = await Rename_uploade_img_multiFild(
+            [req.files.image, req.files.pdf],
+            "sounds"
+        );
+        if (files.image) await removeImg(req, req.body.oldImage);
+        if (files.pdf) await removeImg(req, req.body.oldPdf);
         req.body.pdf = files.pdf ? files.pdf : req.body.oldPdf;
         req.body.image = files.image ? files.image : req.body.oldImage;
         req.body.active = req.body.active ? true : false;
@@ -191,8 +189,8 @@ const deleteSound = async (req, res, next) => {
                 id: req.params.id,
             },
         });
-        removeImg(req, "sound/", req.body.oldImage);
-        if (req.body.oldPdf) removeImg(req, "sound/", req.body.oldPdf);
+        await removeImg(req, req.body.oldImage);
+        if (req.body.oldPdf) await removeImg(req, req.body.oldPdf);
         returnWithMessage(
             req,
             res,

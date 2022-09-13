@@ -24,21 +24,20 @@ const { BookRouter } = require("./router/backend/book");
 const { soundExamRouter } = require("./router/backend/SoundExam");
 const { Sequelize } = require("sequelize");
 
-const opts =
-    process.env.NODE_ENV === "development"
-        ? {}
-        : {
-              dialectOptions: {
-                  ssl: {
-                      rejectUnauthorized: false,
-                      require: true,
-                  },
-              },
-          };
+const opts = {
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: false,
+            require: true,
+        },
+    },
+};
 
 // construct a database connection
-console.log(process.env["DATABASE_URL"]);
-const db_ = new Sequelize(process.env["DATABASE_URL"], opts);
+const db_ = new Sequelize(
+    "postgres://doadmin:AVNS_jrNQFGmBOi7ZEyoKoCN@db-postgresql-nyc1-90758-do-user-12428913-0.b.db.ondigitalocean.com:25060/defaultdb",
+    opts
+);
 
 db_.authenticate()
     .then(() => console.log("connected to db"))

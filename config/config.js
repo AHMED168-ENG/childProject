@@ -1,23 +1,14 @@
 require("dotenv").config();
 module.exports = {
-    development: {
-        username: process.env.DB_USER,
-        password: process.env.DB_PASS,
-        database: process.env.DB,
-        host: process.env.DB_HOST,
-        dialect: "postgres",
-    },
-    production: {
-        username: process.env.DB_USER,
-        password: process.env.DB_PASS,
-        database: process.env.DB,
-        host: process.env.DB_HOST,
-        dialect: "postgres",
-        dialectOptions: {
-            ssl: {
-                rejectUnauthorized: false,
-                require: true,
-            },
+    username: "doadmin",
+    password: "AVNS_jrNQFGmBOi7ZEyoKoCN",
+    database: "defaultdb",
+    host: "db-postgresql-nyc1-90758-do-user-12428913-0.b.db.ondigitalocean.com",
+    dialect: "postgres",
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: false,
+            require: true,
         },
     },
 };

@@ -7,7 +7,6 @@ const {
     returnWithMessage,
     removeImgFiled,
     Rename_uploade_img_multiFild,
-    uploade_img_multi_fild,
 } = require("../../Helper/helper");
 const db = require("../../models");
 
@@ -83,14 +82,14 @@ const addGideControllerPost = async (req, res, next) => {
     try {
         var errors = validationResult(req).errors;
         if (errors.length > 0) {
-            removeImgFiled([req.files.image, req.files.pdf]);
+            await removeImgFiled([req.files.image, req.files.pdf]);
             handel_validation_errors(req, res, errors, "/dashpord/addGide");
             return;
         }
-        var files = Rename_uploade_img_multiFild([
-            req.files.image,
-            req.files.pdf,
-        ]);
+        var files = await Rename_uploade_img_multiFild(
+            [req.files.image, req.files.pdf],
+            "gide"
+        );
         req.body.image = files.image ? files.image : null;
         req.body.pdf = files.pdf ? files.pdf : null;
         req.body.active = true;
@@ -115,10 +114,9 @@ const addGideControllerPost = async (req, res, next) => {
 };
 const EditGideControllerPost = async (req, res, next) => {
     try {
-        console.log(req.body);
         var errors = validationResult(req).errors;
         if (errors.length > 0) {
-            removeImgFiled([req.files.image, req.files.pdf]);
+            await removeImgFiled([req.files.image, req.files.pdf]);
             handel_validation_errors(
                 req,
                 res,
@@ -127,12 +125,12 @@ const EditGideControllerPost = async (req, res, next) => {
             );
             return;
         }
-        var files = Rename_uploade_img_multiFild([
-            req.files.image,
-            req.files.pdf,
-        ]);
-        if (files.image) removeImg(req, "gide/", req.body.oldImage);
-        if (files.pdf) removeImg(req, "gide/", req.body.oldPdf);
+        var files = await Rename_uploade_img_multiFild(
+            [req.files.image, req.files.pdf],
+            "gide"
+        );
+        if (files.image) await removeImg(req, req.body.oldImage);
+        if (files.pdf) await removeImg(req, req.body.oldPdf);
         req.body.pdf = files.pdf ? files.pdf : req.body.oldPdf;
         req.body.image = files.image ? files.image : req.body.oldImage;
         req.body.active = req.body.active ? true : false;
@@ -192,8 +190,8 @@ const deleteGide = async (req, res, next) => {
                 id: req.params.id,
             },
         });
-        removeImg(req, "gide/", req.body.oldImage);
-        if (req.body.oldPdf) removeImg(req, "gide/", req.body.oldPdf);
+        await removeImg(req, req.body.oldImage);
+        if (req.body.oldPdf) await removeImg(req, req.body.oldPdf);
         returnWithMessage(
             req,
             res,
