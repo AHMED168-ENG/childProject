@@ -6,7 +6,7 @@ const {
     EditTestingControllerPost,
     addTestingController,
     addTestingControllerPost,
-} = require("../../controller/backend/Testing");
+} = require("../../controller/backend/testing");
 const { isAuthonticate } = require("../../middel_ware/backEnd/isAuthonticate");
 
 const {
