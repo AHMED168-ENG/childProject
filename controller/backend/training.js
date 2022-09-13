@@ -40,7 +40,7 @@ const addTrainingController = async (req, res, next) => {
                 active: true,
             },
         });
-        res.render("backEnd/Training/addTraining", {
+        res.render("backEnd/training/addTraining", {
             title: "add Training",
             URL: req.url,
             notification: req.flash("notification")[0],

@@ -65,13 +65,13 @@
         <div class="box">
           <div class="image">
             <h5 style="padding:7px"><%= element.name%></h5>
-            <img style="height:140px" src="/backEnd/assets/img/Book/<%=
+            <img style="height:140px" src="<%=
             element.image.split("--")[0] %>" alt="" />
           </div>
           <div class="text">
              <p>الاضطراب : <span <%=  element.isOther ? "style=color:red" : "" %>><%= element.isOther ? " هذا الكتاب مشترك مبين اكثر من اعاقه " :  element.booksDisability.name %></span></p>
           </div>
-          <button class="btn btn-md btn-success download" dataHref="http://localhost:5000/backEnd/assets/img/Book/<%= element.pdf.split("--")[0] %>" href="/showTraining/<%= element.id %>">تنزيل الكتاب</button>
+          <button class="btn btn-md btn-success download" dataHref="<%= element.pdf.split("--")[0] %>" href="/showTraining/<%= element.id %>">تنزيل الكتاب</button>
       
         </div>
       </div>
