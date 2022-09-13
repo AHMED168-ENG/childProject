@@ -1,5 +1,5 @@
 /*--************ start helpper functions --**********/
-
+const cloudinary = require("cloudinary");
 const multer = require("multer");
 const fs = require("fs");
 const db = require("../models");
