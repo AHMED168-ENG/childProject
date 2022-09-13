@@ -6,7 +6,7 @@ const {
     AllSoundController,
     activeSound,
     deleteSound,
-} = require("../../controller/backend/SoundExam");
+} = require("../../controller/backend/soundExam");
 const { uploade_img_multi_fild } = require("../../Helper/helper");
 const { isAuthonticate } = require("../../middel_ware/backEnd/isAuthonticate");
 
