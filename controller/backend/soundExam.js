@@ -21,7 +21,7 @@ const AllSoundController = async (req, res, next) => {
                 },
             ],
         });
-        res.render("backEnd/SoundExam/showAll", {
+        res.render("backEnd/soundExam/showAll", {
             title: "All SoundExam",
             URL: req.url,
             notification: req.flash("notification")[0],
@@ -41,7 +41,7 @@ const addSoundController = async (req, res, next) => {
                 active: true,
             },
         });
-        res.render("backEnd/SoundExam/addSound", {
+        res.render("backEnd/soundExam/addSound", {
             title: "add SoundExam",
             URL: req.url,
             notification: req.flash("notification")[0],
@@ -65,7 +65,7 @@ const EditSoundController = async (req, res, next) => {
                 active: true,
             },
         });
-        res.render("backEnd/SoundExam/EditSound", {
+        res.render("backEnd/soundExam/EditSound", {
             title: "update sound",
             URL: req.url,
             notification: req.flash("notification")[0],
