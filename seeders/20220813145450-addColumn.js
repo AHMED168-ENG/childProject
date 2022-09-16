@@ -24,7 +24,7 @@ module.exports = {
                         isAdmin: true,
                         isDoctor: true,
                         active: true,
-                        image: "0.00387338867850362ssssss.jpg--",
+                        image: "0.00387338867850362ssssss.png--",
                         Disability: [1],
                         createdAt: new Date(),
                         updatedAt: new Date(),
