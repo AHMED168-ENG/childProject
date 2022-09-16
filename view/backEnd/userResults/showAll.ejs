@@ -49,7 +49,7 @@
 													<tr>
 														<td>
 															<h2 class="table-avatar">
-																<a style="margin-left:10px" href="/dashpord/EditUsers/<%= element.ResultUser.id %>" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="<%= element.ResultUser.image ? element.ResultUser.image.split("--")[0] : "/backEnd/assets/img/users/avatar.png" %>" alt="training Image "></a>
+																<a style="margin-left:10px" href="/dashpord/EditUsers/<%= element.ResultUser.id %>" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="/backEnd/assets/img/users/<%= element.ResultUser.image ? element.ResultUser.image.split("--")[0] : "avatar.png" %>" alt="training Image "></a>
 																<a href="/dashpord/EditUsers/<%= element.ResultUser.id %>"><p class="testPar"><%= element.ResultUser.name %></p></a>
 															</h2>
 														</td>

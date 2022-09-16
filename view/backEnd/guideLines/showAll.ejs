@@ -50,7 +50,7 @@
 													<tr>
 														<td>
 															<h2 class="table-avatar">
-																<a style="margin-left:10px" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="<%=element.image.split("--")[0] %>" alt="training Image "></a>
+																<a style="margin-left:10px" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="/backEnd/assets/img/gide/<%= element.image ? element.image.split("--")[0] : "avatar.png" %>" alt="training Image "></a>
 																<a><p class="testPar"><%= element.title %></p></a>
 															</h2>
 														</td>
@@ -61,7 +61,7 @@
 														<%= element.guideLinesDisability.name %>
                                                     </td>
 													<td>
-                                                        <a style="margin-left:10px" target="_blank" href="<%=  element.pdf.split("--")[0] %>" class="avatar avatar-sm mr-2">pdf</a>
+                                                        <a style="margin-left:10px" target="_blank" href="/backEnd/assets/img/gide/<%=  element.pdf.split("--")[0] %>" class="avatar avatar-sm mr-2">pdf</a>
                                                     </td>
 													
 													<td>

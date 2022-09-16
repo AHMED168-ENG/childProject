@@ -1,46 +1,46 @@
 const {
-    userNotAuthonticat,
+  userNotAuthonticat,
 } = require("../../../middel_ware/frontEnd/usernotAuthonticat");
 const {
-    signInUser,
-    signUpUser,
-    signInUserPost,
-    signUpUserPost,
-    activeUserPage,
-    signOutUser,
+  signInUser,
+  signUpUser,
+  signInUserPost,
+  signUpUserPost,
+  activeUserPage,
+  signOutUser,
 } = require("../../../controller/frontEnd/auth/auth");
 const { uploade_img } = require("../../../Helper/helper");
 const {
-    signUpUserValidation,
+  signUpUserValidation,
 } = require("../../../validation/frontEnd/authUser");
 const {
-    authAdminValidation,
+  authAdminValidation,
 } = require("../../../validation/backEnd/auth.validation");
 const {
-    userAuthonticat,
+  userAuthonticat,
 } = require("../../../middel_ware/frontEnd/userAuthonticate");
 
 const router = require("express").Router();
 
 router.get("/signIn", userNotAuthonticat, signInUser);
 router.post(
-    "/signIn",
-    userNotAuthonticat,
-    authAdminValidation(),
-    signInUserPost
+  "/signIn",
+  userNotAuthonticat,
+  authAdminValidation(),
+  signInUserPost
 );
 
 router.get("/signUp", userNotAuthonticat, signUpUser);
 router.post(
-    "/signUp",
-    userNotAuthonticat,
-    uploade_img("image"),
-    signUpUserValidation(),
-    signUpUserPost
+  "/signUp",
+  userNotAuthonticat,
+  uploade_img("public/backEnd/assets/img/users", "image"),
+  signUpUserValidation(),
+  signUpUserPost
 );
 router.get("/activeUserPage/:id", userNotAuthonticat, activeUserPage);
 router.get("/signOutUser", userAuthonticat, signOutUser);
 
 module.exports = {
-    authUserRoutes: router,
+  authUserRoutes: router,
 };

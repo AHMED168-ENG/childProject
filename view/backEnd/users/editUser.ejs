@@ -76,7 +76,7 @@
 												<div class="form-group">
 													<div class="change-avatar">
 														<div class="profile-img">
-															<img style="width:150px;height:150px" src="<%= user.image.split("--")[0]%>" alt="User Image">
+															<img style="width:150px;height:150px" src="<%= user.image ? "/backEnd/assets/img/users/" + user.image.split("--")[0] : "/backEnd/assets/img/users/avatar.png" %>" alt="User Image">
 														</div>
 														<div class="upload-img">
 															<div class="change-photo-btn">

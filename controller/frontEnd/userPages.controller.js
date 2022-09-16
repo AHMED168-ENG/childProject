@@ -445,10 +445,10 @@ const sendResult = async (req, res, nest) => {
                 test: req.params.id,
             },
         });
-        var file = await Rename_uploade_img(req, "users");
+        var file = Rename_uploade_img(req);
 
         if (userResult) {
-            await removeImg(req, userResult.audio);
+            removeImg(req, "users/audio/", userResult.audio);
             await db.usersResult.update(
                 { audio: file },
                 {
@@ -566,7 +566,7 @@ const EditPersonalInformationPost = async (req, res, nest) => {
     try {
         var errors = await validationResult(req).errors;
         if (errors.length > 0) {
-            await removeImg(req);
+            removeImg(req);
             handel_validation_errors(
                 req,
                 res,
@@ -575,12 +575,13 @@ const EditPersonalInformationPost = async (req, res, nest) => {
             );
             return;
         }
-        var file = await Rename_uploade_img(req, "users");
+        var file = Rename_uploade_img(req);
         if (file) {
-            await removeImg(req, req.body.oldImage);
+            removeImg(req, "users/", req.body.oldImage);
         }
         req.body.image = file ? file : req.body.oldImage;
         req.body.gender = req.body.gender == "1" ? true : false;
+        console.log(req.body);
         req.body.Disability =
             req.body.Disability.length == 1
                 ? [req.body.Disability]

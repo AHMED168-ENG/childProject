@@ -44,11 +44,11 @@ db_.authenticate()
     .then(() => console.log("connected to db"))
     .catch(console.error);
 
-cloudinary.config({
-    cloud_name: process.env.cloud_name,
-    api_key: process.env.api_key,
-    api_secret: process.env.api_secret,
-});
+// cloudinary.config({
+//     cloud_name: process.env.cloud_name,
+//     api_key: process.env.api_key,
+//     api_secret: process.env.api_secret,
+// });
 /*--------------------------- start sockit Io ----------------------------------*/
 var activeUser = {};
 

@@ -2,6 +2,7 @@ const {
     tryError,
     handel_validation_errors,
     removeImg,
+    Rename_uploade_img,
     returnWithMessage,
     removeImgFiled,
     Rename_uploade_img_multiFild,
@@ -40,7 +41,7 @@ const addTrainingController = async (req, res, next) => {
                 active: true,
             },
         });
-        res.render("backEnd/training/addTraining", {
+        res.render("backEnd/Training/addTraining", {
             title: "add Training",
             URL: req.url,
             notification: req.flash("notification")[0],
@@ -58,14 +59,14 @@ const addTrainingControllerPost = async (req, res, next) => {
         const errors = validationResult(req).errors;
         if (errors.length > 0) {
             handel_validation_errors(req, res, errors, "/dashpord/addTraining");
-            await removeImgFiled([req.files.image, req.files.video]);
+            removeImgFiled([req.files.image, req.files.video]);
             return;
         }
 
-        var file = Rename_uploade_img_multiFild(
-            [req.files.image, req.files.video],
-            "training"
-        );
+        var file = Rename_uploade_img_multiFild([
+            req.files.image,
+            req.files.video,
+        ]);
         req.body.image = file.image ? file.image : "";
         req.body.video = file.video ? file.video : "";
         req.body.active = true;
@@ -117,7 +118,7 @@ const EditTrainingControllerPost = async (req, res, next) => {
     try {
         var errors = validationResult(req).errors;
         if (errors.length > 0) {
-            await removeImgFiled([req.files.image, req.files.video]);
+            removeImgFiled([req.files.image, req.files.video]);
             handel_validation_errors(
                 req,
                 res,
@@ -127,18 +128,19 @@ const EditTrainingControllerPost = async (req, res, next) => {
             return;
         }
 
-        var files = Rename_uploade_img_multiFild(
-            [req.files.image, req.files.video],
-            "trainig"
-        );
+        var files = Rename_uploade_img_multiFild([
+            req.files.image,
+            req.files.video,
+        ]);
         if (files.image) {
-            await removeImg(req, req.body.oldImage);
+            removeImg(req, "trainingImage/", req.body.oldImage);
             req.body.image = files.image;
         } else {
             req.body.image = req.body.OlduserImage;
         }
         if (files.video) {
-            if (req.body.oldVideo) await removeImg(req, req.body.oldVideo);
+            if (req.body.oldVideo)
+                removeImg(req, "trainingImage/", req.body.oldVideo);
             req.body.video = files.video;
         } else {
             req.body.video = req.body.oldVideo;
@@ -199,8 +201,9 @@ const deleteTraining = async (req, res, next) => {
                 id: req.params.id,
             },
         });
-        await removeImg(req, req.body.oldImage);
-        if (req.body.oldVideo) await removeImg(req, req.body.oldVideo);
+        removeImg(req, "trainingImage/", req.body.oldImage);
+        if (req.body.oldVideo)
+            removeImg(req, "trainingImage/", req.body.oldVideo);
         returnWithMessage(
             req,
             res,

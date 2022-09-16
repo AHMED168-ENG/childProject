@@ -65,12 +65,12 @@
                 <div class="box">
                   <div class="image">
                     <h5 style="padding:7px"><%= element.title %></h5>
-                    <img style="height:140px" src="<%=
+                    <img style="height:140px" src="/backEnd/assets/img/gide/<%=
                     element.image.split("--")[0] %>" alt="" />
                   </div>
                   <div class="text">
                     <p>الاضطراب : <span <%=  element.isOther ? "style=color:red" : "" %>><%= element.isOther ? " هذا الكتاب مشترك مبين اكثر من اعاقه " :  element.guideLinesDisability.name %></span></p>                  </div>
-                  <button class="btn btn-md btn-success download" dataHref="<%= element.pdf.split("--")[0] %>" href="/showTraining/<%= element.id %>" href="/showTraining/<%= element.id %>">تنزيل الارشادات</button>
+                  <button class="btn btn-md btn-success download" dataHref="http://localhost:5000/backEnd/assets/img/gide/<%= element.pdf.split("--")[0] %>" href="/showTraining/<%= element.id %>" href="/showTraining/<%= element.id %>">تنزيل الارشادات</button>
                 </div>
               </div>
               <% }) %>

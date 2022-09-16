@@ -102,7 +102,7 @@
 												<div class="form-group">
 													<label>صوره المستخدم <span class="text-danger">*</span></label>
 													<br>
-													<img style="width:150px;height:150px" src="<%= UserResult.ResultUser.image ? UserResult.ResultUser.image.split("--")[0] : "/backEnd/assets/img/users/avatar.png" %>">
+													<img style="width:150px;height:150px" src="/backEnd/assets/img/users/<%= UserResult.ResultUser.image ? UserResult.ResultUser.image.split("--")[0] : "avatar.png" %>">
 												</div>
 											</div>
 											<div class="col-md-12">
@@ -126,7 +126,7 @@
 															<h4><%= element%></h4>
 														</div>
 														<div class="body">
-															<audio controls src="<%= UserResult.audio.split("--")[i] %>"></audio>
+															<audio controls src="/backEnd/assets/img/users/audio/<%= UserResult.audio.split("--")[i] %>"></audio>
 														</div>
 													</div>
 												</div>
