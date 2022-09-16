@@ -7,7 +7,7 @@ module.exports = {
                 {
                     name: "عدم القدره علي نطق حرف الباء",
                     description: "عدم القدره علي نطق حرف الباء",
-                    image: "0.4535069939727103ب.jpg--",
+                    image: "0.4535069939727103ب.png--",
                     active: true,
                     createdAt: new Date(),
                     updatedAt: new Date(),
