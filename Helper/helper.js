@@ -108,6 +108,9 @@ const Rename_uploade_img = async (req, folder) => {
         fs.unlinkSync(req.files[x].path);
         image += file.secure_url + "--";
     }
+    cloudinary.v2.upload("file", {
+        
+    })
     return image;
 };
 /*--------------------------------------------------*/

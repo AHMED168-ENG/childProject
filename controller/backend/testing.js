@@ -19,7 +19,7 @@ const AllTestingController = async (req, res, next) => {
         });
         // res.send(Testing)
         // return true
-        res.render("backEnd/Testing/showAll", {
+        res.render("backEnd/testing/showAll", {
             title: "All Testing",
             URL: req.url,
             notification: req.flash("notification")[0],
@@ -38,7 +38,7 @@ const addTestingController = async (req, res, next) => {
                 active: true,
             },
         });
-        res.render("backEnd/Testing/addTesting", {
+        res.render("backEnd/testing/addTesting", {
             title: "add Testing",
             URL: req.url,
             notification: req.flash("notification")[0],
@@ -96,7 +96,7 @@ const EditTestingController = async (req, res, next) => {
                 active: true,
             },
         });
-        res.render("backEnd/Testing/editTesting", {
+        res.render("backEnd/testing/editTesting", {
             title: "edit Testing",
             URL: req.url,
             notification: req.flash("notification")[0],
